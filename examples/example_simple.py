@@ -20,7 +20,7 @@ def get_filepath():
 
 
 def get_token():
-    """Gets authentication token (requires root or user acl)"""
+    """Get authentication token (requires root or user acl)"""
     with open(get_filepath()+"/authtoken.secret") as file:
         auth_token = file.read()
     return auth_token
@@ -31,7 +31,7 @@ ZT_API = get_token()
 
 
 async def main():
-    """Example code to retrieve the data from a ZeroTier node."""
+    """Example code to retrieve data from a ZeroTier node."""
     async with aiohttp.ClientSession() as session:
         client = ZeroTier(ZT_API, loop, session)
 

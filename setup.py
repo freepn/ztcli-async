@@ -8,9 +8,10 @@ except ImportError:
     from distutils.core import setup
 
 
-ZTCLI_VERSION = '0.0.0'
+__version__ = '0.0.1'
+
 ZTCLI_DOWNLOAD_URL = (
-    'https://github.com/sarnold/ztcli/tarball/' + ZTCLI_VERSION
+    'https://github.com/sarnold/ztcli/tarball/' + __version__
 )
 
 
@@ -25,7 +26,7 @@ def read_file(filename):
 setup(
     name='ztcli',
     packages=['ztcli_api',],
-    version=ZTCLI_VERSION,
+    version=__version__,
     license='LGPL-3.0',
     description='Python API for the local ZT node API interface.',
     long_description=read_file('README.rst'),
@@ -33,7 +34,7 @@ setup(
     author='Stephen L Arnold',
     author_email='nerdboy@gentoo.org',
     install_requires=['aiohttp', 'async_timeout'],
-    download_url=SCHEDULE_DOWNLOAD_URL,
+    download_url=ZTCLI_DOWNLOAD_URL,
     keywords=['zerotier-cli', 'api'],
     classifiers=[
         'Environment :: Console',
