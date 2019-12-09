@@ -15,8 +15,6 @@ WRITABLE_NETWORK = [
     'allowDefault',
 ]
 
-WRITABLE_MEMBER = []
-
 
 class ZeroTier(object):
     """A class for handling the data retrieval."""

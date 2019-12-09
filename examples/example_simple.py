@@ -1,4 +1,5 @@
 """Get data from a given node."""
+import json
 import platform
 
 import asyncio
@@ -26,18 +27,19 @@ def get_token():
     return auth_token
 
 
-ZT_HOST = 'localhost'
-ZT_API = get_token()
+def pprint(obj):
+    print(json.dumps(obj, indent=2, separators=(',', ': ')))
 
 
 async def main():
     """Example code to retrieve data from a ZeroTier node."""
     async with aiohttp.ClientSession() as session:
+        ZT_API = get_token()
         client = ZeroTier(ZT_API, loop, session)
 
         # Print details of the controller
         await client.get_data('status')
-        print(client.data)
+        pprint(client.data)
         print(client.data.get('online'))
 
         # Display all available nets
@@ -47,7 +49,7 @@ async def main():
 
         # Get details about a network
         await client.get_data('network/{}'.format('b6079f73c63cea29'))
-        print(client.data)
+        pprint(client.data)
 
         # Set a toggle for an existing network
         await client.set_value(
