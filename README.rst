@@ -1,5 +1,5 @@
-=======
- ztcli
-=======
+=============
+ ztcli-async
+=============
 
-A Python client wrapper for the zerotier-cli node API
+An async Python client wrapper for the zerotier-cli node API

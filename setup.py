@@ -11,7 +11,7 @@ except ImportError:
 __version__ = '0.0.1'
 
 ZTCLI_DOWNLOAD_URL = (
-    'https://github.com/sarnold/ztcli/tarball/' + __version__
+    'https://github.com/sarnold/ztcli-async/tarball/' + __version__
 )
 
 
@@ -24,18 +24,18 @@ def read_file(filename):
 
 
 setup(
-    name='ztcli',
+    name='ztcli-async',
     packages=['ztcli_api',],
     version=__version__,
     license='LGPL-3.0',
-    description='Python API for the local ZT node API interface.',
+    description='Python async wrapper for the local ZT node API interface.',
     long_description=read_file('README.rst'),
-    url='https://github.com/sarnold/ztcli',
+    url='https://github.com/sarnold/ztcli-async',
     author='Stephen L Arnold',
     author_email='nerdboy@gentoo.org',
     install_requires=['aiohttp', 'async_timeout'],
     download_url=ZTCLI_DOWNLOAD_URL,
-    keywords=['zerotier-cli', 'api'],
+    keywords=['zerotier-cli', 'api', 'async'],
     classifiers=[
         'Environment :: Console',
         'Intended Audience :: Developers',
