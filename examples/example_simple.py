@@ -6,6 +6,7 @@ import asyncio
 import aiohttp
 
 from ztcli_api import ZeroTier
+from ztcli_api import exceptions
 
 
 def get_filepath():
@@ -37,25 +38,36 @@ async def main():
         ZT_API = get_token()
         client = ZeroTier(ZT_API, loop, session)
 
-        # Print details of the controller
-        await client.get_data('status')
-        pprint(client.data)
-        print(client.data.get('online'))
+        try:
+            # get status details of the local node
+            await client.get_data('status')
+            print('Node status:')
+            pprint(client.data)
+            # print(client.data.get('online'))
 
-        # Display all available nets
-        await client.get_data('network')
-        for network in client.data:
-            print(network.get('id'))
+            # get status details of the node peers
+            await client.get_data('peer')
+            print('Peers found:')
+            pprint(client.data)
 
-        # Get details about a network
-        await client.get_data('network/{}'.format('b6079f73c63cea29'))
-        pprint(client.data)
+            # get/display all available network data
+            await client.get_data('network')
+            print('Networks found:')
+            pprint(client.data)
+            # for network in client.data:
+                # my_id = network.get('id')
+                # print(my_id)
+                # # Get details about each network
+                # await client.get_data('network/{}'.format(my_id))
+                # pprint(client.data)
 
-        # Set a toggle for an existing network
-        await client.set_value(
-            'allowGlobal', 'True', 'network/{}'.format('b6079f73c63cea29'))
-        await client.get_data('network/{}'.format('b6079f73c63cea29'))
-        print(network.get('allowGlobal'))
+                # Set a toggle for an existing network
+                # await client.set_value(
+                    # 'allowGlobal', 'True', 'network/{}'.format(my_id))
+                # await client.get_data('network/{}'.format(my_id))
+                # print(network.get('allowGlobal'))
+        except exceptions.ZeroTierConnectionError:
+            pass
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
