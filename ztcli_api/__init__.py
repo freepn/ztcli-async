@@ -1,4 +1,4 @@
-"""A Python client wrapper for the zerotier-cli node API."""
+"""A Python async client wrapper for the zerotier-cli node API."""
 import asyncio
 import logging
 

@@ -1,4 +1,4 @@
-"""Get data from a given node."""
+"""Get data from local ZT node API."""
 import json
 import platform
 
