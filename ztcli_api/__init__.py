@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """A Python async client wrapper for the zerotier-cli node API."""
 import asyncio
 import logging
@@ -28,7 +30,7 @@ class ZeroTier(object):
         self.url = '{}:{}'.format(host, port)
 
     async def get_data(self, endpoint):
-        """Retrieve node data using JSON API ``endpoint``."""
+        """Send a GET request to  JSON API ``endpoint``."""
         try:
             with async_timeout.timeout(5, loop=self._loop):
                 response = await self._session.get(
@@ -39,7 +41,7 @@ class ZeroTier(object):
             self.data = await response.json()
             logger.debug(self.data)
         except (asyncio.TimeoutError, aiohttp.ClientError):
-            logger.error("Can not load data from ZeroTier node")
+            logger.error("Cannot load data from ZeroTier node")
             raise exceptions.ZeroTierConnectionError()
 
     async def set_value(self, key, variable, endpoint):
@@ -54,5 +56,5 @@ class ZeroTier(object):
 
             logger.debug("Response status: %s", response.status)
         except (asyncio.TimeoutError, aiohttp.ClientError):
-            logger.error("Can not update entry of ZeroTier node")
+            logger.error("Cannot update entry of ZeroTier node")
             raise exceptions.ZeroTierConnectionError()

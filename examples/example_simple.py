@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """Get data from local ZT node API."""
 import json
 import platform
