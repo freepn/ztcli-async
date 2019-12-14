@@ -7,7 +7,7 @@ import logging
 import aiohttp
 import async_timeout
 
-from ztcli_api import exceptions
+from .exceptions import ZeroTierConnectionError as ZeroTierConnectionError
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ class ZeroTier(object):
             logger.debug(self.data)
         except (asyncio.TimeoutError, aiohttp.ClientError):
             logger.error("Cannot load data from ZeroTier node")
-            raise exceptions.ZeroTierConnectionError()
+            raise ZeroTierConnectionError
 
     async def set_value(self, key, variable, endpoint):
         """Send a POST request to JSON API ``endpoint``."""
@@ -57,4 +57,4 @@ class ZeroTier(object):
             logger.debug("Response status: %s", response.status)
         except (asyncio.TimeoutError, aiohttp.ClientError):
             logger.error("Cannot update entry of ZeroTier node")
-            raise exceptions.ZeroTierConnectionError()
+            raise ZeroTierConnectionError

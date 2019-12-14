@@ -25,7 +25,7 @@ def read_file(filename):
 
 setup(
     name='ztcli-async',
-    packages=['ztcli_api',],
+    packages=['ztcli_api'],
     version=__version__,
     license='LGPL-3.0',
     description='Python async wrapper for the local ZT node API interface.',
