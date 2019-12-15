@@ -8,7 +8,7 @@ import asyncio
 import aiohttp
 
 from ztcli_api import ZeroTier
-from ztcli_api.exceptions import ZeroTierConnectionError as ZeroTierConnectionError
+from ztcli_api import ZeroTierConnectionError as ZeroTierConnectionError
 
 
 def get_filepath():
@@ -57,19 +57,18 @@ async def main():
             print('Networks found:')
             pprint(client.data)
             # for network in client.data:
-            #     my_id = network.get('id')
-            #     print(my_id)
-            #     Get details about each network
-            #     await client.get_data('network/{}'.format(my_id))
-            #     pprint(client.data)
+                # my_id = network.get('id')
+                # print(my_id)
+                # # Get details about each network
+                # await client.get_data('network/{}'.format(my_id))
+                # pprint(client.data)
 
-            #     Set a toggle for an existing network
-            #     await client.set_value(
-            #         'allowGlobal', 'True', 'network/{}'.format(my_id))
-            #     await client.get_data('network/{}'.format(my_id))
-            #     print(network.get('allowGlobal'))
-        except ZeroTierConnectionError:
-            print('Cannot connect to ZeroTier node; is it running?')
+                # Set a toggle for an existing network
+                # await client.set_value(
+                    # 'allowGlobal', 'True', 'network/{}'.format(my_id))
+                # await client.get_data('network/{}'.format(my_id))
+                # print(network.get('allowGlobal'))
+        except exceptions.ZeroTierConnectionError:
             pass
 
 loop = asyncio.get_event_loop()

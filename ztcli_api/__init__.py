@@ -17,6 +17,12 @@ WRITABLE_NETWORK = [
     'allowDefault',
 ]
 
+__all__ = [
+    'WRITABLE_NETWORK',
+    'ZeroTier',
+    'ZeroTierConnectionError',
+]
+
 
 class ZeroTier(object):
     """A class for handling the data retrieval."""
@@ -41,8 +47,8 @@ class ZeroTier(object):
             self.data = await response.json()
             logger.debug(self.data)
         except (asyncio.TimeoutError, aiohttp.ClientError):
-            logger.error("Cannot load data from ZeroTier node")
-            raise ZeroTierConnectionError
+            logger.debug("Cannot load data from ZeroTier node")
+            raise ZeroTierConnectionError('Cannot connect to ZeroTier API')
 
     async def set_value(self, key, variable, endpoint):
         """Send a POST request to JSON API ``endpoint``."""
@@ -56,5 +62,5 @@ class ZeroTier(object):
 
             logger.debug("Response status: %s", response.status)
         except (asyncio.TimeoutError, aiohttp.ClientError):
-            logger.error("Cannot update entry of ZeroTier node")
-            raise ZeroTierConnectionError
+            logger.debug("Cannot update entry of ZeroTier node")
+            raise ZeroTierConnectionError('Cannot connect to ZeroTier API')
