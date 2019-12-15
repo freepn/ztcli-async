@@ -1,14 +1,5 @@
 # coding: utf-8
 """A Python async client wrapper for the zerotier-cli node API."""
-
-
-__all__ = [
-    'WRITABLE_NETWORK',
-    'ZeroTier',
-    'ZeroTierConnectionError',
-]
-
-
 import logging
 import asyncio
 
@@ -16,6 +7,13 @@ import aiohttp
 import async_timeout
 
 from .exceptions import ZeroTierConnectionError as ZeroTierConnectionError
+
+
+__all__ = [
+    'WRITABLE_NETWORK',
+    'ZeroTier',
+    'ZeroTierConnectionError',
+]
 
 
 logger = logging.getLogger(__name__)
