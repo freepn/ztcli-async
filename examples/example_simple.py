@@ -68,7 +68,8 @@ async def main():
                     # 'allowGlobal', 'True', 'network/{}'.format(my_id))
                 # await client.get_data('network/{}'.format(my_id))
                 # print(network.get('allowGlobal'))
-        except exceptions.ZeroTierConnectionError:
+        except ZeroTierConnectionError as exc:
+            print(str(exc))
             pass
 
 loop = asyncio.get_event_loop()
