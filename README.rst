@@ -6,7 +6,7 @@
     :target: https://github.com/sarnold/ztcli-async/blob/master/LICENSE
 
 .. image:: https://img.shields.io/github/v/tag/sarnold/ztcli-async
-    :alt: GitHub tag (latest SemVer)
+    :target: https://badge.fury.io/gh/sarnold%2Fztcli-async
 
 .. image:: https://travis-ci.org/sarnold/ztcli-async.svg?branch=master
     :target: https://travis-ci.org/sarnold/ztcli-async
