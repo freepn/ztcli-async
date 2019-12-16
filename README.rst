@@ -3,6 +3,7 @@
 =============
 
 .. image:: https://img.shields.io/github/license/sarnold/ztcli-async
+   :alt: GitHub
    :target: https://github.com/sarnold/ztcli-async/blob/master/LICENSE
 
 .. image:: https://img.shields.io/github/v/release/sarnold/ztcli-async?include_prereleases
