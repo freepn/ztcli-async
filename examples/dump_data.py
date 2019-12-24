@@ -11,6 +11,9 @@ from ztcli_api import ZeroTier
 from ztcli_api import ZeroTierConnectionError as ZeroTierConnectionError
 
 
+verbose = True
+
+
 def get_filepath():
     """Get filepath according to OS"""
     if platform.system() == "Linux":
@@ -34,6 +37,19 @@ def pprint(obj):
     print(json.dumps(obj, indent=2, separators=(',', ': ')))
 
 
+def dump_json(endpoint, data):
+    with open(endpoint + '.json', 'w') as fp:
+        json.dump(data, fp)
+    print('{} data in {}.json'.format(endpoint, endpoint))
+
+
+def load_json(endpoint):
+    with open(endpoint + '.json', 'r') as fp:
+        data = json.load(fp)
+    print('{} data read from {}.json'.format(endpoint, endpoint))
+    return data
+
+
 async def main():
     """Example code to retrieve data from a ZeroTier node."""
     async with aiohttp.ClientSession() as session:
@@ -43,31 +59,25 @@ async def main():
         try:
             # get status details of the local node
             await client.get_data('status')
-            print('Node status:')
-            pprint(client.data)
-            # print(client.data.get('online'))
+            dump_json('status', client.data)
+            status_data = load_json('status')
+            if verbose:
+                pprint(status_data)
 
             # get status details of the node peers
             await client.get_data('peer')
-            print('Peers found:')
-            pprint(client.data)
+            dump_json('peer', client.data)
+            peer_data = load_json('peer')
+            if verbose:
+                pprint(peer_data)
 
             # get/display all available network data
             await client.get_data('network')
-            print('Networks found:')
-            pprint(client.data)
-            # for network in client.data:
-                # my_id = network.get('id')
-                # print(my_id)
-                # # Get details about each network
-                # await client.get_data('network/{}'.format(my_id))
-                # pprint(client.data)
+            dump_json('network', client.data)
+            net_data = load_json('network')
+            if verbose:
+                pprint(net_data)
 
-                # Set a toggle for an existing network
-                # await client.set_value(
-                    # 'allowGlobal', 'True', 'network/{}'.format(my_id))
-                # await client.get_data('network/{}'.format(my_id))
-                # print(network.get('allowGlobal'))
         except ZeroTierConnectionError as exc:
             print(str(exc))
             pass
