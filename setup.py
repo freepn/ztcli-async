@@ -8,10 +8,10 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.0.2'
+__version__ = '0.0.4'
 
 ZTCLI_DOWNLOAD_URL = (
-    'https://github.com/sarnold/ztcli-async/tarball/' + __version__
+    'https://github.com/freepn/ztcli-async/tarball/' + __version__
 )
 
 
@@ -27,10 +27,10 @@ setup(
     name='ztcli-async',
     packages=['ztcli_api'],
     version=__version__,
-    license='LGPL-3.0',
+    license='MIT',
     description='Python async wrapper for the local ZT node API interface.',
     long_description=read_file('README.rst'),
-    url='https://github.com/sarnold/ztcli-async',
+    url='https://github.com/freepn/ztcli-async',
     author='Stephen L Arnold',
     author_email='nerdboy@gentoo.org',
     install_requires=['aiohttp', 'async_timeout'],
