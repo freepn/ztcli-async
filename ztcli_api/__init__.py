@@ -1,5 +1,6 @@
 # coding: utf-8
 """A Python async client wrapper for the zerotier-cli node API."""
+import json
 import logging
 import asyncio
 
@@ -72,8 +73,8 @@ class ZeroTier(object):
 
     async def set_value(self, key, variable, endpoint):
         """Send a POST request to JSON API ``endpoint``."""
-        payload = {key: variable}
-        print(payload)
+        payload = json.dumps({key: variable}, separators=(',', ':'))
+        logger.debug("Using payload: %s", payload)
         try:
             with async_timeout.timeout(5, loop=self._loop):
                 response = await self._session.post(
