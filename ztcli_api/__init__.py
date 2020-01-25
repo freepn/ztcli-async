@@ -11,6 +11,7 @@ from .exceptions import ZeroTierConnectionError as ZeroTierConnectionError
 
 __all__ = [
     'WRITABLE_NETWORK',
+    'WRITABLE_NODE',
     'ZeroTier',
     'ZeroTierConnectionError',
 ]
@@ -20,6 +21,23 @@ logger = logging.getLogger(__name__)
 
 
 WRITABLE_NETWORK = [
+    'name',
+    'private',
+    'enableBroadcast',
+    'v4AssignMode',
+    'v6AssignMode',
+    'mtu',
+    'multicastLimit'
+    'routes',
+    'ipAssignmentPools',
+    'rules',
+    'capabilities',
+    'tags',
+    'remoteTraceTarget',
+    'remoteTraceLevel',
+]
+
+WRITABLE_NODE = [
     'allowManaged',
     'allowGlobal',
     'allowDefault',
