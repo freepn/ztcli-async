@@ -6,9 +6,9 @@
    :alt: GitHub
    :target: https://github.com/freepn/ztcli-async/blob/master/LICENSE
 
-.. image:: https://img.shields.io/github/v/release/freepn/ztcli-async?include_prereleases
-   :alt: GitHub release (latest by date including pre-releases)
+.. image:: https://img.shields.io/github/v/tag/freepn/ztcli-async?color=green&include_prereleases&label=latest%20release
    :target: https://github.com/freepn/ztcli-async/releases
+   :alt: GitHub tag (latest SemVer, including pre-release)
 
 .. image:: https://travis-ci.org/freepn/ztcli-async.svg?branch=master
    :target: https://travis-ci.org/freepn/ztcli-async
