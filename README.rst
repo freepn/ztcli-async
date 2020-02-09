@@ -2,6 +2,10 @@
  ztcli-async
 =============
 
+ztcli-async is a thin async Python client wrapper for the zerotier-cli
+node API (mainly based on `zerotier-client`_ and the `ZeroTier API doc`_).
+
+
 .. image:: https://img.shields.io/github/license/freepn/ztcli-async
    :alt: GitHub
    :target: https://github.com/freepn/ztcli-async/blob/master/LICENSE
@@ -25,9 +29,6 @@
     :target: https://codeclimate.com/github/freepn/ztcli-async
     :alt: Code Climate maintainability
 
-
-ztcli-async is a thin async Python client wrapper for the zerotier-cli
-node API (mainly based on `zerotier-client`_ and the `ZeroTier API doc`_).
 
 .. _zerotier-client: https://github.com/fabaff/zerotier-client
 .. _ZeroTier API doc: https://zerotier.com/manual/
@@ -206,7 +207,8 @@ Authors
 License
 =======
 
-This project is licensed under the MIT - see the `LICENSE file`_ for details.
+This project is licensed under the MIT license - see the `LICENSE file`_ for
+details.
 
 .. _LICENSE file: https://github.com/freepn/ztcli-async/blob/master/LICENSE
 
