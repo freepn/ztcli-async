@@ -13,8 +13,9 @@ from .exceptions import ZeroTierNoDataAvailable as ZeroTierNoDataAvailable
 
 
 __all__ = [
-    'WRITABLE_CONTROLLER',
+    'WRITABLE_NETWORK',
     'WRITABLE_MEMBER',
+    'WRITABLE_NODE',
     'ZeroTier',
     'ZeroTierError',
     'ZeroTierConnectionError',
@@ -25,7 +26,7 @@ __all__ = [
 logger = logging.getLogger(__name__)
 
 
-WRITABLE_CONTROLLER = [
+WRITABLE_NETWORK = [
     'name',
     'private',
     'enableBroadcast',
@@ -43,6 +44,12 @@ WRITABLE_CONTROLLER = [
 ]
 
 WRITABLE_MEMBER = [
+    'authorized',
+    'activeBridge',
+    'ipAssignments',
+]
+
+WRITABLE_NODE = [
     'allowManaged',
     'allowGlobal',
     'allowDefault',
@@ -85,6 +92,8 @@ class ZeroTier(object):
                     headers=self.headers, data=payload)
 
             logger.debug("Response status: %s", response.status)
+            self.data = await response.json()
+            # logger.debug(self.data)
         except (asyncio.TimeoutError, aiohttp.ClientError):
             logger.debug("Cannot update entry of ZeroTier node")
             raise ZeroTierConnectionError('Cannot connect to ZeroTier API')
@@ -99,7 +108,7 @@ class ZeroTier(object):
 
             logger.debug("Response status: %s", response.status)
             self.data = await response.json()
-            logger.debug(self.data)
+            # logger.debug(self.data)
         except (asyncio.TimeoutError, aiohttp.ClientError):
             logger.debug("Cannot delete entry from ZeroTier node")
             raise ZeroTierConnectionError('Cannot connect to ZeroTier API')
