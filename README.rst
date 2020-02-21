@@ -59,11 +59,11 @@ installed and then add the PPA:
 
 ::
 
-  $ sudo apt-get install software-properties-common ubuntu-keyring ubuntu-archive-keyring
+  $ sudo apt-get install software-properties-common
   $ sudo add-apt-repository -y -s ppa:nerdboy/embedded
 
 
-.. note:: Since the only package series currently published is for xenial
+.. note:: Since the package series currently published are for xenial/bionic
           the second command above will need to be manually corrected
           afterwards if installing on Debian.
 
@@ -197,7 +197,7 @@ process for submitting pull requests to us.
 Authors
 =======
 
-* **Stephen Arnold** - *Current implementation, cleanup, and packaging* - `freepn`_
+* **Stephen Arnold** - *Current implementation and packaging* - `freepn`_
 * **Fabian Affolter** - *Original implementation* - `fabaff`_
 
 .. _freepn: https://github.com/freepn/

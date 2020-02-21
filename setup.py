@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 
 ZTCLI_DOWNLOAD_URL = (
     'https://github.com/freepn/ztcli-async/tarball/' + __version__
@@ -40,7 +40,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: LGPL-3.0 License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
