@@ -81,9 +81,9 @@ class ZeroTier(object):
             logger.debug("Cannot load data from ZeroTier node")
             raise ZeroTierConnectionError('Cannot connect to ZeroTier API')
 
-    async def set_value(self, key, variable, endpoint):
+    async def set_value(self, cfg_dict, endpoint):
         """Send a POST request to JSON API ``endpoint``."""
-        payload = json.dumps({key: variable}, separators=(',', ':'))
+        payload = json.dumps(cfg_dict, separators=(',', ':'))
         logger.debug("Using payload: %s", payload)
         try:
             with async_timeout.timeout(5, loop=self._loop):
