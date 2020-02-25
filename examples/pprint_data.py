@@ -63,9 +63,9 @@ async def main():
                 # await client.get_data('network/{}'.format(my_id))
                 # pprint(client.data)
 
-                # Set a toggle for an existing network
-                # await client.set_value(
-                    # 'allowGlobal', 'True', 'network/{}'.format(my_id))
+                # # Set a toggle for an existing network
+                # await client.set_value({'allowGlobal': True},
+                                        # 'network/{}'.format(my_id))
                 # await client.get_data('network/{}'.format(my_id))
                 # print(network.get('allowGlobal'))
 
